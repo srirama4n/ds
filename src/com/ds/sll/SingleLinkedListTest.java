@@ -4,8 +4,44 @@ public class SingleLinkedListTest {
 
     public static void main(String[] args) {
 //        validateAdd();
-        validateRemoveDuplicates();
-        validateRemoveDuplicatedWithoutBuffer();
+//        validateRemoveDuplicates();
+//        validateRemoveDuplicatedWithoutBuffer();
+//        validateReturnKthLast();
+//        validateKthFromLastUsingIterative();
+        validateKthFromLastUsingRecusrsion();
+    }
+
+    static void validateReturnKthLast() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(1);
+        sll.addLast(2);
+        sll.addLast(3);
+        sll.addLast(4);
+
+        int data = sll.kthFromLastUsingSize(2);
+        System.out.println("Data : " + data);
+    }
+
+    static void validateKthFromLastUsingIterative() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(1);
+        sll.addLast(2);
+        sll.addLast(3);
+        sll.addLast(4);
+
+        int data = sll.kthFromLastUsingIterative(2);
+        System.out.println("Data : " + data);
+    }
+
+    static void validateKthFromLastUsingRecusrsion() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(1);
+        sll.addLast(2);
+        sll.addLast(3);
+        sll.addLast(4);
+
+        int data = sll.kthFromLastUsingRecursion(sll.head, 2);
+        System.out.println("Data : " + data);
     }
 
     static void validateAdd() {

@@ -6,6 +6,7 @@ public class SingleLinkedList {
 
     Node head;
     Node tail;
+    int size;
 
     public void printAll() {
         Node node = head;
@@ -24,6 +25,7 @@ public class SingleLinkedList {
             tail.next = node;
             tail = node;
         }
+        ++size;
     }
 
     /**
@@ -59,6 +61,50 @@ public class SingleLinkedList {
         }
     }
 
+    public int kthFromLastUsingSize(int k) {
+        int iterations = size - k;
+        Node node = head;
+        while (iterations > 0) {
+            node = node.next;
+            --iterations;
+        }
+        return node.data;
+    }
+
+    public int kthFromLastUsingRecursion(Node node, int k) {
+        Node actualNode = kthLast(node, k, new Idx());
+        return actualNode.data;
+    }
+
+    private Node kthLast(Node node, int k, Idx index) {
+        if (node == null) {
+            return null;
+        }
+
+        Node runner = kthLast(node.next, k, index);
+        index.value = index.value + 1;
+        if (index.value == k) {
+            return node;
+        }
+        return runner;
+    }
+
+
+    public int kthFromLastUsingIterative(int k) {
+        Node slow = head;
+        Node fast = head;
+        for (int i = 0; i <= k; i++) {
+            fast = fast.next;
+            --k;
+        }
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow.data;
+    }
+
 }
 
 class Node {
@@ -69,4 +115,8 @@ class Node {
     public Node(int data) {
         this.data = data;
     }
+}
+
+class Idx {
+    public int value = 0;
 }
