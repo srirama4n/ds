@@ -12,6 +12,26 @@ public class SingleLinkedListTest {
 //        validateDeleteNode();
 //        validatePartition();
 //        validatePartition2();
+        validateSumLists();
+    }
+
+    private static void validateSumLists() {
+
+        // 617 + 295 = 912
+        SingleLinkedList sll1 = new SingleLinkedList();
+        sll1.addLast(7);
+        sll1.addLast(1);
+        sll1.addLast(6);
+
+        SingleLinkedList sll2 = new SingleLinkedList();
+        sll2.addLast(5);
+        sll2.addLast(9);
+        sll2.addLast(2);
+
+        Node node = SingleLinkedList.addListsOfEqualSize(sll1.head, sll2.head,0);
+
+
+        SingleLinkedList.printAll(node);
     }
 
     private static void validatePartition2() {
