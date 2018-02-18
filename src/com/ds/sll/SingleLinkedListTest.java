@@ -8,7 +8,48 @@ public class SingleLinkedListTest {
 //        validateRemoveDuplicatedWithoutBuffer();
 //        validateReturnKthLast();
 //        validateKthFromLastUsingIterative();
-        validateKthFromLastUsingRecusrsion();
+//        validateKthFromLastUsingRecursion();
+//        validateDeleteNode();
+        validatePartition();
+        validatePartition2();
+    }
+
+    private static void validatePartition2() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(3);
+        sll.addLast(5);
+        sll.addLast(8);
+        sll.addLast(5);
+        sll.addLast(10);
+        sll.addLast(2);
+        sll.addLast(1);
+        Node node = sll.partitionUsingDualList(5);
+        sll.printAll(node);
+    }
+
+    private static void validatePartition() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(3);
+        sll.addLast(5);
+        sll.addLast(8);
+        sll.addLast(5);
+        sll.addLast(10);
+        sll.addLast(2);
+        sll.addLast(1);
+        Node node = sll.partitionUsingSingleList(5);
+        sll.printAll(node);
+    }
+
+    private static void validateDeleteNode() {
+
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(1);
+        sll.addLast(2);
+        sll.addLast(3);
+        sll.addLast(4);
+
+        int data = sll.kthFromLastUsingSize(2);
+        System.out.println("Data : " + data);
     }
 
     static void validateReturnKthLast() {
@@ -33,7 +74,7 @@ public class SingleLinkedListTest {
         System.out.println("Data : " + data);
     }
 
-    static void validateKthFromLastUsingRecusrsion() {
+    static void validateKthFromLastUsingRecursion() {
         SingleLinkedList sll = new SingleLinkedList();
         sll.addLast(1);
         sll.addLast(2);
@@ -50,7 +91,7 @@ public class SingleLinkedListTest {
         sll.addLast(2);
         sll.addLast(3);
         sll.addLast(4);
-        sll.printAll();
+        sll.printAll(sll.head);
     }
 
     static void validateRemoveDuplicates() {
@@ -62,7 +103,7 @@ public class SingleLinkedListTest {
         sll.addLast(2);
         sll.addLast(3);
         sll.removeDuplicatedUsingHashSet();
-        sll.printAll();
+        sll.printAll(sll.head);
     }
 
     static void validateRemoveDuplicatedWithoutBuffer() {
@@ -74,6 +115,6 @@ public class SingleLinkedListTest {
         sll.addLast(2);
         sll.addLast(3);
         sll.removeDuplicatedWithoutBuffer();
-        sll.printAll();
+        sll.printAll(sll.head);
     }
 }

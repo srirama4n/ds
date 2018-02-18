@@ -8,8 +8,7 @@ public class SingleLinkedList {
     Node tail;
     int size;
 
-    public void printAll() {
-        Node node = head;
+    public void printAll(Node node) {
         while (node != null) {
             System.out.println("Node data :  " + node.data);
             node = node.next;
@@ -103,6 +102,66 @@ public class SingleLinkedList {
             fast = fast.next;
         }
         return slow.data;
+    }
+
+    public void partitionUsingDualNodes(Node node, int x) {
+
+
+    }
+
+    public Node partitionUsingSingleList(int x) {
+
+        Node node = head;
+        Node newHead = head;
+        Node newTail = head;
+        while (node != null) {
+            Node next = node.next;
+            node.next = null;
+            if (node.data < x) {
+                node.next = newHead;
+                newHead = node;
+            } else {
+                newTail.next = node;
+                newTail = node;
+            }
+            node = next;
+        }
+
+        return newHead;
+    }
+
+    public Node partitionUsingDualList(int x) {
+
+        Node node = head;
+        Node beforeHead = null;
+        Node beforeTail = null;
+        Node afterHead = null;
+        Node afterTail = null;
+        while (node != null) {
+            Node next = node.next;
+            node.next = null;
+            if (node.data < x) {
+                if (beforeHead == null) {
+                    beforeHead = node;
+                    beforeTail = node;
+                } else {
+                    beforeTail.next = node;
+                    beforeTail = node;
+                }
+            } else {
+                if (afterHead == null) {
+                    afterHead = node;
+                    afterTail = node;
+                } else {
+                    afterTail.next = node;
+                    afterTail = node;
+                }
+            }
+            node = next;
+        }
+
+        beforeTail.next = afterHead;
+        return beforeHead;
     }
 
 }
