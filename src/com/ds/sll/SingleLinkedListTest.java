@@ -10,8 +10,8 @@ public class SingleLinkedListTest {
 //        validateKthFromLastUsingIterative();
 //        validateKthFromLastUsingRecursion();
 //        validateDeleteNode();
-        validatePartition();
-        validatePartition2();
+//        validatePartition();
+//        validatePartition2();
     }
 
     private static void validatePartition2() {
