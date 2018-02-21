@@ -181,6 +181,34 @@ public class SingleLinkedList {
         return node;
     }
 
+
+    public static boolean isPalindromeUsingReverse(SingleLinkedList sll) {
+        Node h = sll.head;
+        Node t = sll.tail;
+
+        Node nh = null;
+        Node nt = null;
+
+        nh = t;
+        nh.next = h.next;
+        nt = h;
+        nt.next = null;
+        printAll(nh);
+
+        while (h != null && nh != null) {
+            if (h.data != nh.data) {
+                return false;
+            }
+            h = h.next;
+            nh = nh.next;
+        }
+        return true;
+    }
+
+    public Node reverseList(Node headNode, Node tailNode) {
+        return null;
+    }
+
 }
 
 class Node {

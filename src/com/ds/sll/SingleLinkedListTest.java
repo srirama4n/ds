@@ -12,10 +12,25 @@ public class SingleLinkedListTest {
 //        validateDeleteNode();
 //        validatePartition();
 //        validatePartition2();
-        validateSumLists();
+//        validateAddEqualSizeLists();
+//        validateAddUnEqualSizeLists();
+        /**
+         * Pending implementation
+         */
+        validateIfListIsPalindrome();
     }
 
-    private static void validateSumLists() {
+    private static void validateIfListIsPalindrome() {
+        SingleLinkedList sll = new SingleLinkedList();
+        sll.addLast(1);
+        sll.addLast(2);
+        sll.addLast(3);
+        sll.addLast(4);
+        sll.addLast(5);
+        SingleLinkedList.printAll(sll.reverseList(sll.head, sll.tail));
+    }
+
+    private static void validateAddEqualSizeLists() {
 
         // 617 + 295 = 912
         SingleLinkedList sll1 = new SingleLinkedList();
@@ -28,9 +43,25 @@ public class SingleLinkedListTest {
         sll2.addLast(9);
         sll2.addLast(2);
 
-        Node node = SingleLinkedList.addListsOfEqualSize(sll1.head, sll2.head,0);
+        Node node = SingleLinkedList.addListsOfEqualSize(sll1.head, sll2.head, 0);
+        SingleLinkedList.printAll(node);
+    }
 
+    private static void validateAddUnEqualSizeLists() {
 
+        // 1234 + 567 = 1801
+        SingleLinkedList sll1 = new SingleLinkedList();
+        sll1.addLast(1);
+        sll1.addLast(2);
+        sll1.addLast(3);
+        sll1.addLast(4);
+
+        SingleLinkedList sll2 = new SingleLinkedList();
+        sll2.addLast(5);
+        sll2.addLast(6);
+        sll2.addLast(7);
+
+        Node node = SingleLinkedList.addListsOfEqualSize(sll1.head, sll2.head, 0);
         SingleLinkedList.printAll(node);
     }
 
